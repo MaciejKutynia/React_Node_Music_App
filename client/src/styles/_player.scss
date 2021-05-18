@@ -1,0 +1,149 @@
+.player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 4;
+  background: black;
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.3s ease-in-out;
+  .cover {
+    cursor: pointer;
+  }
+  .track-info {
+    width: 40%;
+    h4 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 2rem;
+    }
+  }
+  .track-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    margin: 0 auto;
+    position: relative;
+    top: 5%;
+    p {
+      font-size: 1.7rem;
+    }
+    .track {
+      width: 80%;
+      background: #d55cf7;
+      height: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      border-radius: 0.3rem;
+      input {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        cursor: pointer;
+        -webkit-appearance: none;
+        background: transparent;
+        outline: none;
+        padding: 1rem 0;
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+      .track-anim {
+        background: rgb(94, 92, 92);
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+    }
+  }
+  .controls {
+    position: relative;
+    top: 20%;
+    width: 50%;
+    margin: 0 auto;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    #volume {
+      position: relative;
+      .mute + input {
+        left: -210%;
+      }
+      input {
+        transform: rotate(-90deg);
+        position: absolute;
+        top: -280%;
+        left: -180%;
+        padding: 1rem 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s ease;
+        &.visible {
+          opacity: 1;
+          pointer-events: all;
+        }
+      }
+    }
+    svg {
+      pointer-events: all;
+    }
+  }
+  &.none {
+    opacity: 0;
+    pointer-events: none;
+  }
+  &.hidden {
+    height: 10vh;
+    top: 90%;
+    display: flex;
+    align-items: center;
+    .cover {
+      width: 10%;
+      height: 100%;
+      top: 0;
+      margin: 0;
+      img {
+        height: 100%;
+      }
+    }
+    .track-info {
+      top: 0;
+      margin: 0;
+      height: 100%;
+      width: 20%;
+      h4 {
+        font-size: 2rem;
+        text-align: center;
+      }
+      p {
+        font-size: 1.7rem;
+      }
+    }
+    .track-time {
+      top: 0;
+    }
+    .controls {
+      top: 0;
+    }
+  }
+}
+
+.toggle {
+  position: absolute;
+  right: 5%;
+  top: 10%;
+}
