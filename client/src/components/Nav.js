@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faImages, faList } from '@fortawesome/free-solid-svg-icons';
+import {
+  faImages,
+  faList,
+  faHeart,
+  faPlus,
+  faSearch,
+} from '@fortawesome/free-solid-svg-icons';
 
 import headphones from '../images/headphones.png';
 
@@ -21,6 +27,8 @@ const Nav = () => {
   //If view is True View change to the list otherwise is pictures view
   let view = useSelector((state) => state.buttons.view);
 
+  let addForm = useSelector((state) => state.buttons.addForm);
+
   const libraryHandler = () => {
     libraryState = !libraryState;
     dispatch({
@@ -32,7 +40,6 @@ const Nav = () => {
   const viewHandler = () => {
     view = !view;
     dispatch({ type: 'SET_VIEW', payload: view });
-    console.log(view);
   };
 
   const logoHandler = () => {
@@ -58,31 +65,52 @@ const Nav = () => {
       });
     }
     setQuery('');
-    console.log(query);
   };
+
+  const showAddFormHandler = () => {};
 
   return (
     <header>
-      <button className='btn' onClick={libraryHandler}>
+      <button className='btn fav' onClick={libraryHandler}>
         Ulubione
+        <FontAwesomeIcon icon={faHeart} size='2x' />
       </button>
-      <form className='search'>
-        <input
-          type='search'
-          onChange={(event) => setQuery(event.target.value)}
-        />
-        <button onClick={searchHandler}>Szukaj</button>
-      </form>
+      <button
+        className='btn add'
+        onClick={() => {
+          dispatch({
+            type: 'TOGGLE_ADD_FORM',
+            payload: true,
+          });
+          dispatch({
+            type: 'EDIT_TRACK',
+            payload: false,
+          });
+        }}>
+        Dodaj
+        <FontAwesomeIcon icon={faPlus} />
+      </button>
+
       <img
         className='logo'
         src={headphones}
         alt='musicapply'
         onClick={logoHandler}
       />
-      <button className='btn' onClick={viewHandler}>
+
+      <button className='btn list' onClick={viewHandler}>
         <FontAwesomeIcon icon={view ? faImages : faList} />{' '}
         {view ? 'Siatka' : 'Lista'}
       </button>
+      <form className='search'>
+        <input
+          type='search'
+          onChange={(event) => setQuery(event.target.value)}
+        />
+        <button onClick={searchHandler}>
+          <FontAwesomeIcon icon={faSearch} />
+        </button>
+      </form>
     </header>
   );
 };

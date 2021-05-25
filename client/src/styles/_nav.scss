@@ -1,27 +1,86 @@
 header {
   margin: 0 auto;
-  width: 95%;
+  width: 90%;
   height: 10vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   .btn {
-    margin-right: 1rem;
-    margin-left: 1rem;
-    padding: 0rem 1rem;
-    width: 15rem;
-    height: 3.5rem;
-    text-transform: uppercase;
+    svg {
+      margin: 0 1rem;
+      font-size: 2rem;
+    }
+    &.add {
+      position: relative;
+      left: -6.5%;
+      width: 12rem;
+      svg {
+        margin-right: 0;
+      }
+    }
+    &.fav {
+      margin-left: 0;
+    }
+    &.list {
+      width: 12rem;
+      margin-right: 0;
+      position: relative;
+      left: 9%;
+      svg {
+        margin-left: 0;
+      }
+    }
+    &.submit {
+      font-size: 1.6rem;
+      letter-spacing: 0.2rem;
+    }
+  }
+}
+
+.logo {
+  position: relative;
+  top: 55%;
+  width: 17%;
+  cursor: pointer;
+  left: 2%;
+}
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  right: 0;
+  width: 15%;
+  input {
+    width: 80%;
+    height: 4.5rem;
+    background: transparent;
+    border: 2px solid rgba(211, 97, 243, 0.5);
+    border-radius: 0.5rem;
+    color: white;
+    outline: none;
+    font-size: 1.7rem;
+  }
+  button {
+    outline: none;
+    font-size: 1.7rem;
+    height: 4.5rem;
+    width: 20%;
+    background: transparent;
+    border: 2px solid rgba(211, 97, 243, 0.5);
+    border-radius: 0.5rem;
+    color: white;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: 1.8rem;
+    // font-size: 1.8rem;
     justify-content: center;
-    transition: 0.3s ease;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    transition: 0.2s ease;
     svg {
-      margin-right: 1rem;
-      font-size: 2.5rem;
+      font-size: 2rem;
+      pointer-events: none;
     }
   }
 }

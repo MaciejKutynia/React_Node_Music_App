@@ -5,6 +5,10 @@ const initialState = {
   songCounter: 0,
   libraryCounter: 0,
   view: false,
+  addForm: false,
+  edit: false,
+  fav: false,
+  fromLibrary: false,
 };
 
 export const buttonsReducer = (state = initialState, action) => {
@@ -35,6 +39,23 @@ export const buttonsReducer = (state = initialState, action) => {
         ...state,
         view: payload,
       };
+    case 'TOGGLE_ADD_FORM':
+      return {
+        ...state,
+        addForm: payload,
+      };
+    case 'EDIT_TRACK':
+      return {
+        ...state,
+        edit: payload,
+      };
+    case 'FAVOURITES':
+      return {
+        ...state,
+        fav: payload,
+      };
+    case 'SONG_FROM_LIBRARY':
+      return { ...state, fromLibrary: payload };
     default:
       return { ...state };
   }

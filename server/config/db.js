@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import config from 'config';
 
-export const connsec = async () => {
+export const connect = async () => {
   try {
     await mongoose.connect(config.get('mongoURI'), {
       useUnifiedTopology: true,

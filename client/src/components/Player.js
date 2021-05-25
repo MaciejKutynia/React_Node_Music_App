@@ -12,6 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { useSelector, useDispatch } from 'react-redux';
+import { setPlayer } from '../actions/music';
 
 const Player = ({ audioRef }) => {
   const dispatch = useDispatch();
@@ -35,6 +36,10 @@ const Player = ({ audioRef }) => {
   const artist = useSelector((state) => state.music.artist);
   const title = useSelector((state) => state.music.title);
   const cover = useSelector((state) => state.music.cover);
+
+  const fromLibrary = useSelector((state) => state.buttons.fromLibrary);
+
+  const favourites = useSelector((state) => state.music.favourites);
 
   const tracks = useSelector((state) => state.music.tracks);
 
@@ -89,16 +94,46 @@ const Player = ({ audioRef }) => {
     setIsPlaying(false);
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
-    if (songCounter > 0) {
-      dispatch({
-        type: 'SONG_COUNT',
-        payload: songCounter - 1,
-      });
+    if (fromLibrary) {
+      if (songCounter > 0) {
+        dispatch({
+          type: 'SONG_COUNT',
+          payload: songCounter - 1,
+        });
+      } else {
+        dispatch({
+          type: 'SONG_COUNT',
+          payload: favourites.length - 1,
+        });
+      }
+      dispatch(
+        setPlayer(
+          favourites[songCounter]._id,
+          favourites[songCounter].artist,
+          favourites[songCounter].name,
+          favourites[songCounter].cover
+        )
+      );
     } else {
-      dispatch({
-        type: 'SONG_COUNT',
-        payload: tracks.length - 1,
-      });
+      if (songCounter > 0) {
+        dispatch({
+          type: 'SONG_COUNT',
+          payload: songCounter - 1,
+        });
+      } else {
+        dispatch({
+          type: 'SONG_COUNT',
+          payload: tracks.length - 1,
+        });
+      }
+      dispatch(
+        setPlayer(
+          tracks[songCounter]._id,
+          tracks[songCounter].artist,
+          tracks[songCounter].name,
+          tracks[songCounter].cover
+        )
+      );
     }
   };
 
@@ -106,13 +141,40 @@ const Player = ({ audioRef }) => {
     setIsPlaying(false);
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
-    if (songCounter < tracks.length - 1) {
-      dispatch({
-        type: 'SONG_COUNT',
-        payload: songCounter + 1,
-      });
+    if (fromLibrary) {
+      if (songCounter < favourites.length - 1) {
+        dispatch({
+          type: 'SONG_COUNT',
+          payload: songCounter + 1,
+        });
+      } else {
+        dispatch({ type: 'SONG_COUNT', payload: 0 });
+      }
+      dispatch(
+        setPlayer(
+          favourites[songCounter]._id,
+          favourites[songCounter].artist,
+          favourites[songCounter].name,
+          favourites[songCounter].cover
+        )
+      );
     } else {
-      dispatch({ type: 'SONG_COUNT', payload: 0 });
+      if (songCounter < tracks.length - 1) {
+        dispatch({
+          type: 'SONG_COUNT',
+          payload: songCounter + 1,
+        });
+      } else {
+        dispatch({ type: 'SONG_COUNT', payload: 0 });
+      }
+      dispatch(
+        setPlayer(
+          tracks[songCounter]._id,
+          tracks[songCounter].artist,
+          tracks[songCounter].name,
+          tracks[songCounter].cover
+        )
+      );
     }
   };
 

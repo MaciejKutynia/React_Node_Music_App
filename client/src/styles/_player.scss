@@ -1,14 +1,18 @@
 .player {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80vh;
+  transform: translate(-50%, -50%);
   z-index: 4;
-  background: black;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  border-radius: 1rem;
   opacity: 1;
   pointer-events: all;
   transition: 0.3s ease-in-out;
+  border: 2px solid rgba(211, 97, 243, 0.3);
   .cover {
     cursor: pointer;
   }
@@ -108,9 +112,15 @@
   }
   &.hidden {
     height: 10vh;
+    left: 0;
+    width: 100%;
+    transform: translate(0, 0);
     top: 90%;
     display: flex;
     align-items: center;
+    border: 1px solid rgba(211, 97, 243, 0.3);
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
     .cover {
       width: 10%;
       height: 100%;

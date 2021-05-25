@@ -1,0 +1,351 @@
+@media (max-width: 1400px) {
+  header {
+    .search {
+      width: 20%;
+      input {
+        width: 80%;
+      }
+      button {
+        width: 20%;
+      }
+    }
+    .btn.list {
+      left: 6%;
+    }
+    .logo {
+      left: 4%;
+    }
+  }
+  .container {
+    height: 75vh;
+    .tracks-container,
+    .library-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .player.hidden {
+    display: grid;
+    grid-template-columns: 0.5fr 2.5fr;
+    grid-template-rows: 1fr 1fr;
+    top: 0;
+    height: 15vh;
+    top: 85%;
+    .cover {
+      height: 100px;
+      width: 100px;
+      margin: auto;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .track-info {
+      grid-column: 2/3;
+      grid-row: 1/2;
+      height: 50%;
+      width: 100%;
+      margin-bottom: auto;
+      flex-direction: row;
+      justify-content: space-around;
+      h4,
+      p {
+        margin: 0;
+      }
+    }
+    .track-time {
+      grid-column: 2/3;
+      grid-row: 1/2;
+      height: 50%;
+      width: 90%;
+      margin-top: auto;
+    }
+    .controls {
+      grid-column: 1/3;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+@media (max-width: 1200px) and (min-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+  .container {
+    padding-top: 0;
+    height: 75vh;
+    .tracks-container,
+    .library-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .library-container {
+      top: 0;
+      height: 100%;
+    }
+  }
+  header {
+    width: 100%;
+    display: grid;
+    height: 15vh;
+    grid-template-columns: repeat(2, 1fr);
+    .btn {
+      &.add,
+      &.fav {
+        grid-row: 1/2;
+        margin: auto;
+        width: 30%;
+        left: 0;
+      }
+
+      &.add {
+        margin-right: 25%;
+      }
+      &.fav {
+        margin-left: 25%;
+      }
+      &.list {
+        display: none;
+      }
+    }
+    .search {
+      grid-column: 1/3;
+      width: 35%;
+      margin: 0 auto;
+      left: 0;
+      input {
+        width: 80%;
+      }
+      button {
+        width: 20%;
+      }
+    }
+    .logo {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: -15%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+  }
+  .player {
+    .track-info,
+    .track-time,
+    .controls {
+      width: 90%;
+    }
+    &.hidden {
+      display: grid;
+      grid-template-columns: 0.5fr 2.5fr;
+      grid-template-rows: 1fr 1fr;
+      top: 0;
+      height: 15vh;
+      top: 85%;
+      .cover {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .track-info,
+      .track-time {
+        height: 50%;
+        width: 90%;
+        grid-column: 2/3;
+        grid-row: 1/2;
+      }
+      .track-info {
+        margin-bottom: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        h4,
+        p {
+          margin: 0;
+        }
+      }
+      .track-time {
+        margin-top: auto;
+      }
+      .controls {
+        width: 100%;
+        grid-column: 1/3;
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+  body {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    min-height: 10vh;
+  }
+  .container {
+    height: 69vh;
+    margin-top: 0;
+    padding-top: 3vh;
+    .tracks-container,
+    .library-container {
+      width: 95%;
+      margin: 0 auto;
+      grid-template-columns: 1fr;
+      .track-item {
+        width: 90%;
+      }
+    }
+    .library-container {
+      top: 4%;
+      height: 100%;
+    }
+  }
+  header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+    height: 15vh;
+    width: 100%;
+    margin: 0;
+    .btn {
+      margin: auto;
+      grid-row: 2/3;
+      width: 50%;
+      &.list {
+        display: none;
+      }
+      &.add {
+        left: 0;
+        width: 50%;
+      }
+      &.fav {
+        margin-left: auto;
+      }
+    }
+    form.search {
+      grid-column: 1/3;
+      grid-row: 3/4;
+      left: 0;
+      width: 75%;
+      margin: 0 auto;
+      input {
+        width: 70%;
+      }
+      button {
+        width: 30%;
+      }
+    }
+    .logo {
+      width: 100px;
+      height: 100px;
+      grid-column: 1/3;
+      margin: auto;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      position: absolute;
+    }
+  }
+  .player {
+    .track-time,
+    .controls,
+    .track-info {
+      width: 90%;
+    }
+  }
+
+  .loading {
+    img {
+      width: 100%;
+    }
+  }
+
+  .player.hidden {
+    display: grid;
+    grid-template-columns: 0.5fr 2.5fr;
+    grid-template-rows: repeat(2, 1fr);
+    height: 15vh;
+    top: 85%;
+    .cover {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .track-info {
+      grid-column: 2/3;
+      grid-row: 1/2;
+      width: 100%;
+      height: 50%;
+      margin-bottom: auto;
+      margin-top: 1rem;
+    }
+    .track-time {
+      grid-row: 1/2;
+      grid-column: 2/3;
+      margin-top: auto;
+    }
+    .controls {
+      grid-column: 1/3;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .landing-page {
+    .help {
+      width: 80%;
+    }
+    .main-img {
+      top: 30%;
+      width: 500px;
+      height: 500px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .landing-page {
+    .main-img {
+      top: 40%;
+      width: 350px;
+      height: 350px;
+    }
+    .help {
+      flex-direction: column;
+    }
+    .scroll {
+      img {
+        top: 70%;
+        right: 50%;
+        transform: translateX(50%);
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  header {
+    .btn {
+      width: 70%;
+      z-index: 1;
+      &.add {
+        left: 9%;
+      }
+    }
+    .logo {
+      z-index: 0;
+    }
+    form.search {
+      width: 85%;
+    }
+  }
+}

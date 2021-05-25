@@ -87,51 +87,30 @@ body {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
+  padding-top: 8vh;
 }
 
 .btn {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  padding: 0.5rem 1.5rem;
+  width: 16rem;
+  height: 4.5rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  justify-content: center;
+  transition: 0.3s ease;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   padding: 2rem 3rem;
-  border: 0.1rem solid #d361f3;
+  border: 2px solid rgba(211, 97, 243, 0.5);
   background: transparent;
-  margin: 1rem 0.5rem;
+  margin: 1.5rem 1rem;
   cursor: pointer;
   color: white;
   border-radius: 0.5rem;
-}
-
-.logo {
-  position: relative;
-  top: 15%;
-  width: 10%;
-  cursor: pointer;
-  left: -20%;
-}
-
-.search {
-  position: relative;
-  left: -10%;
-  input {
-    width: 30rem;
-    height: 4rem;
-    background: transparent;
-    border: 0.15rem solid #d361f3;
-    border-radius: 0.5rem;
-    color: white;
-    outline: none;
-    font-size: 1.7rem;
-    padding: 0.5rem;
-  }
-  button {
-    outline: none;
-    font-size: 1.7rem;
-    height: 4rem;
-    width: 10rem;
-    background: transparent;
-    border: 0.15rem solid #d361f3;
-    border-radius: 0.5rem;
-    color: white;
-    cursor: pointer;
-  }
 }
 
 @import './nav';
@@ -139,3 +118,7 @@ body {
 @import './tracksContainer';
 @import './libraryContainer';
 @import './loading';
+@import './_addForm';
+@import './_alert';
+@import './landing';
+@import './media';

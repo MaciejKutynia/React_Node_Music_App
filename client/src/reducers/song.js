@@ -2,6 +2,7 @@ const initialState = {
   currentTime: null,
   duration: null,
   percentage: null,
+  newTrack: null,
 };
 
 export const songReducer = (state = initialState, action) => {
@@ -15,6 +16,11 @@ export const songReducer = (state = initialState, action) => {
         percentage: payload.percentage,
       };
 
+    case 'NEW_TRACK':
+      return {
+        ...state,
+        newTrack: payload,
+      };
     default:
       return { ...state };
   }
