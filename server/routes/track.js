@@ -1,5 +1,6 @@
 import express from 'express';
 import Track from '../models/Track.js';
+<<<<<<< HEAD
 import fs from 'fs';
 
 const router = express.Router();
@@ -74,4 +75,9 @@ router.post('/edit', async (req, res) => {
   }
 });
 
+=======
+
+const router = express.Router();
+
+>>>>>>> server
 export default router;
